@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY FUTURE TECHNOLOGY | Grade 8 ICT</title>
+
+    <!-- =========================================
+         1. CSS STYLES (Embedded inside <style>)
+    ========================================= -->
+    <style>
+        /* Reset default browser spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Color Variables (Blue & White Futuristic Theme) */
+        :root {
+            --primary-blue: #0066ff;
+            --dark-blue: #002b6b;
+            --cyan-glow: #00d4ff;
+            --light-bg: #f4f8ff;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 102, 255, 0.1);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid var(--cyan-glow);
+            color: var(--cyan-glow);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+
+        /* Buttons & Hover Effects */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .primary-btn {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .primary-btn:hover {
+            background-color: var(--cyan-glow);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .info-btn {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            margin-top: 15px;
+        }
+
+        .info-btn:hover {
+            background-color: var(--dark-blue);
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+            transform: scale(1.03);
+        }
+
+        .greeting-text {
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--cyan-glow) !important;
+            min-height: 24px;
+        }
+
+        /* Main Content Cards */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .tech-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 43, 107, 0.08);
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 102, 255, 0.18);
+        }
+
+        /* Alternate layout for even cards */
+        .tech-card.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .card-image {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .tech-card:hover .card-image img {
+            transform: scale(1.06);
+        }
+
+        .card-content {
+            flex: 1;
+            padding: 35px;
+        }
+
+        .card-content h2 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.7rem;
+        }
+
+        .card-content p {
+            color: var(--text-muted);
+        }
+
+        /* Interactive Fun Fact Box */
+        .fact-box {
+            margin-top: 15px;
+            padding: 12px 15px;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 4px;
+            color: var(--dark-blue) !important;
+            font-weight: 500;
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        /* CSS Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Responsive Design for Mobile Phones and Tablets */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 65px;
+                right: 20px;
+                background-color: var(--white);
+                width: 200px;
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .tech-card,
+            .tech-card.reverse {
+                flex-direction: column;
+            }
+
+            .card-image img {
+                height: 230px;
+            }
+
+            .card-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         2. HTML STRUCTURE & CONTENT
+    ========================================= -->
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MY FUTURE <span>TECH</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#ai">AI</a></li>
+                <li><a href="#robotics">Robotics</a></li>
+                <li><a href="#smart-cities">Smart Cities</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#communication">Communication</a></li>
+            </ul>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-btn" id="menuBtn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero / Homepage Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <span class="badge">Grade 8 ICT Learning Portal</span>
+            <h1>MY FUTURE TECHNOLOGY</h1>
+            <p>Explore the innovations shaping tomorrow's world. Discover how smart machines, connected cities, and digital classrooms will transform the way we live, learn, and communicate.</p>
+            <div class="hero-buttons">
+                <a href="#ai" class="btn primary-btn">Start Exploring</a>
+                <button id="welcomeBtn" class="btn secondary-btn">Student Greeting</button>
+            </div>
+            <!-- Interactive message box powered by JavaScript -->
+            <p id="greetingOutput" class="greeting-text"></p>
+        </div>
+    </section>
+
+    <!-- Main Content Sections -->
+    <main class="container">
+
+        <!-- Section 1: Artificial Intelligence -->
+        <section id="ai" class="tech-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="Artificial Intelligence">
+            </div>
+            <div class="card-content">
+                <h2>01. Artificial Intelligence (AI)</h2>
+                <p>Artificial Intelligence allows computers and software to think, learn, and solve problems like humans. From voice assistants on your phone to smart algorithms that help doctors detect illnesses early, AI is becoming an everyday partner.</p>
+                <button class="btn info-btn" onclick="showFact('ai')">Show Fun Fact</button>
+                <p id="fact-ai" class="fact-box"></p>
+            </div>
+        </section>
+
+        <!-- Section 2: Robotics -->
+        <section id="robotics" class="tech-card reverse">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Modern Robotics">
+            </div>
+            <div class="card-content">
+                <h2>02. Robotics</h2>
+                <p>Robotics combines engineering and computer programming to build machines capable of performing complex tasks. Modern robots explore distant planets, assemble cars with precision, and assist surgeons during delicate operations.</p>
+                <button class="btn info-btn" onclick="showFact('robotics')">Show Fun Fact</button>
+                <p id="fact-robotics" class="fact-box"></p>
+            </div>
+        </section>
+
+        <!-- Section 3: Smart Cities -->
+        <section id="smart-cities" class="tech-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Smart Cities">
+            </div>
+            <div class="card-content">
+                <h2>03. Smart Cities</h2>
+                <p>Smart cities use Internet of Things (IoT) sensors and data networks to manage resources efficiently. Intelligent traffic lights reduce congestion, solar grids save energy, and automated systems keep neighborhoods clean and safe.</p>
+                <button class="btn info-btn" onclick="showFact('cities')">Show Fun Fact</button>
+                <p id="fact-cities" class="fact-box"></p>
+            </div>
+        </section>
+
+        <!-- Section 4: Future Education -->
+        <section id="education" class="tech-card reverse">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80" alt="Future Education with VR">
+            </div>
+            <div class="card-content">
+                <h2>04. Future Education</h2>
+                <p>Classrooms of the future go far beyond chalkboards and textbooks. With Virtual Reality (VR) and Augmented Reality (AR), students can take virtual field trips to ancient civilizations or explore a 3D model of the human heart right from their desks.</p>
+                <button class="btn info-btn" onclick="showFact('education')">Show Fun Fact</button>
+                <p id="fact-education" class="fact-box"></p>
+            </div>
+        </section>
+
+        <!-- Section 5: Future Communication -->
+        <section id="communication" class="tech-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="Future Global Communication">
+            </div>
+            <div class="card-content">
+                <h2>05. Future Communication</h2>
+                <p>Ultra-fast 6G networks, satellite internet, and real-time AI language translators are breaking down global barriers. Soon, holographic video calls will let people feel as though they are standing in the same room, no matter where they are on Earth.</p>
+                <button class="btn info-btn" onclick="showFact('communication')">Show Fun Fact</button>
+                <p id="fact-communication" class="fact-box"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MY FUTURE TECHNOLOGY | Created for Grade 8 ICT Students</p>
+    </footer>
+
+    <!-- =========================================
+         3. JAVASCRIPT (Embedded inside <script>)
+    ========================================= -->
+    <script>
+        // 1. Mobile Navigation Menu Toggle
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+
+        // 2. Interactive Student Welcome Message
+        const welcomeBtn = document.getElementById("welcomeBtn");
+        const greetingOutput = document.getElementById("greetingOutput");
+
+        welcomeBtn.addEventListener("click", function () {
+            let studentName = prompt("Welcome, Grade 8 Student! What is your name?");
+
+            if (studentName && studentName.trim() !== "") {
+                greetingOutput.textContent = "Hello, " + studentName + "! Get ready to build the technology of tomorrow!";
+            } else {
+                greetingOutput.textContent = "Hello, Future Innovator! Enjoy exploring the website!";
+            }
+        });
+
+        // 3. Interactive Fun Facts for Each Technology Section
+        function showFact(topic) {
+            const facts = {
+                ai: "Fun Fact: AI can now analyze thousands of medical X-rays in seconds to help doctors spot diseases faster!",
+                robotics: "Fun Fact: NASA's Perseverance rover on Mars is an autonomous robot that drives and collects rock samples millions of miles away!",
+                cities: "Fun Fact: Smart streetlights only brighten when pedestrians or cars pass by, saving up to 60% in electricity!",
+                education: "Fun Fact: Studies show students remember up to 75% more information when learning through interactive Virtual Reality!",
+                communication: "Fun Fact: Future 6G networks are expected to be up to 100 times faster than today's 5G connections!"
+            };
+
+            const factElement = document.getElementById("fact-" + topic);
+
+            if (factElement.style.display === "block") {
+                factElement.style.display = "none";
+            } else {
+                factElement.textContent = facts[topic];
+                factElement.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
